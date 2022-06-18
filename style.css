@@ -13,6 +13,7 @@
   --paragraph:hsl(210, 9%, 31%);
   --brand-beige: hsl(39, 100%, 97%);
   --brand-light: hsl(calc(var(--hue) -22), 23%, 89%);
+  --brand-light-2: hsl(calc(var(--hue)+10),14%,97%); 
   --bg-light: hsl(180, 14%, 97%);
   --brand-dark: hsl(var(--hue), 100%, 14%);
 
@@ -30,7 +31,7 @@ body{
 }
 
 .wrapper{
-  width: 37.5rem;
+  width: min( 50rem, 100%);
   margin-inline : auto;
   padding-inline: 2.4rem;
 }
@@ -53,6 +54,14 @@ section .content p{
   line-height: 150%;
   color: var(--paragraph);
 }
+
+section header h2 {
+  font-size: 3rem;
+  line-height: 3.9rem;
+
+  color: var(--headline);
+}
+
 
 .whats{
   background-color: var(--primary-color);
@@ -140,7 +149,7 @@ p{
 
 .caixageral{
   background-color:var(--brand-beige);
-  width: 32.7rem;
+  width: 100%;
   padding-block: 4rem;
   margin-inline: auto;
   border-radius: 0.6rem;
@@ -152,7 +161,7 @@ p{
   border-radius: 0.6rem;
 }
 
-#caixa1{
+.stat h3{
   font-size: 4.8rem;
   line-height: 6.2rem;
   line-height: 130%;
@@ -160,7 +169,7 @@ p{
   margin-bottom: 0.4rem;
 }
 
-#caixa2{
+.stat p{
   color: var(--primary-color);
   font-size: 1.6rem;
   line-height: 2.4rem;
@@ -204,6 +213,10 @@ nav button{
   cursor: pointer;
 }
 
+nav .menu, nav .close-menu{ 
+position: fixed;
+}
+
 .menu, .close-menu, body.menu-expanded .open-menu{
   opacity: 0;
   visibility: hidden; 
@@ -226,7 +239,6 @@ body.menu-expanded > :not(nav){
 }
 
 body.menu-expanded .menu{
-  position: fixed;
   top: 0;
   left: 0;
   background-color: var(--primary-color);
@@ -293,43 +305,27 @@ body.menu-expanded button path{
   stroke: white;
 }
 
-#services h2{
+#services header h2 {
   margin-bottom: 6rem;
 }
 
-#services header h4{
-  font-size: 14px;
-  line-height: 150%;
-  letter-spacing: 0.08rem;
-  text-transform: uppercase;
-  color: var(--primary-color);
-  margin-bottom: 1.6rem;
-}
-
-#services header h2{
-  font-size: 3rem;
-  line-height: 3.9rem;
-  color: var(--headline);
-  margin-bottom: 6rem;
-}
-
-#services .cards{
-  display:flex;
+#services .cards {
+  display: flex;
   flex-direction: column;
   gap: 3.2rem;
 }
 
-#services .card{
+#services .card {
   padding: 2.4rem;
   text-align: left;
+
   background: white;
+
   border: 1px solid var(--brand-light);
-  box-sizing: border-box;
-  border-radius: .6rem;
-  
+  border-radius: 0.6rem;
 }
 
-#services .card h3{
+#services .card h3 {
   margin-block: 1.6rem;
 }
 
@@ -428,6 +424,7 @@ button.open-menu path[stroke*='#00856F'],
 #contact li path{
   stroke: var(--primary-color);
 }
+
 body.menu-expanded #navigation .logo path,
 #navigation.scroll .logo path{
   fill: white;
@@ -435,4 +432,129 @@ body.menu-expanded #navigation .logo path,
 
 #navigation.scroll button.open-menu path[stroke*='#00856F'] {
   stroke: white;
+}
+
+
+/*/================================RESET===============================/*/
+@media (min-width: 1024px){
+
+  .wrapper{
+    width: min(112rem, 100%);
+    display: grid;
+  }
+
+  nav#navigation .wrapper *{
+    margin: 0;
+    padding: 0;
+    visibility: initial;
+    display: initial;
+    display: initial;
+    opacity: initial;
+    flex-direction: initial;
+    position: initial;
+    font-size: initial;
+    font-weight: initial;
+    transform: initial;
+    color: initial;
+    background-color: initial;
+    filter: initial;
+  }
+
+  nav#navigation .close-menu, 
+  nav#navigation .open-menu,
+  nav#navigation .social-links{
+    display: none;
+  }
+
+  nav#navigation .menu{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60%;
+  }
+
+  nav#navigation .menu ul:nth-child(1){
+    display: flex;
+    gap: 3.2rem;
+} 
+
+    nav#navigation .menu ul li a{
+      color: var(--primary-color);
+      opacity: 0.7;
+    }
+
+    nav#navigation .menu a.button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem 2.4rem;
+      border: 1px solid var(--primary-color);
+      border-radius: 4rem ;
+      color: var(--primary-color);
+      font-weight: 700;
+      font-size: 1.4rem;
+      line-height: 1.8rem;
+      text-transform: uppercase;
+    }
+
+    nav#navigation .menu a.button:hover{
+      background-color: var(--primary-color);
+      border: none;
+      color: white;
+    }
+
+    nav#navigation .menu li a{
+      transition: opacity .4s;
+    }
+
+    nav#navigation.scroll .menu ul li a {
+      color: var(--brand-light-2);
+      opacity: 0.6;
+      color: white;
+    }
+
+    nav#navigation.scroll .menu a.button{
+      border-color:#ffff;
+      color: #ffff;
+    }
+
+    nav#navigation .menu li a:hover{
+      opacity: 1;
+      font-weight: 700;
+    }
+
+     nav#navigation .menu li a::after{
+      content: '';
+      width: 0%;
+      height: 2px;
+      background-color: var(--primary-color);
+      display: block;
+      position: relative;
+      bottom: -2rem;
+      left: -0.5rem;
+      transition: width 0.2s;      
+     }
+     nav#navigation.scroll .menu li a::after{
+      background-color: #ffff;
+     }
+     
+     nav#navigation .menu li a:hover::after{
+      padding-inline: 0.8rem;
+      width: 100%;
+     }
+
+     nav#navigation .menu li a:hover{
+     opacity: 1;  
+     }
+     nav#navigation.scroll .menu a.button:hover{
+      background-color: var(--primary-color);
+      filter: brightness(1.3);
+      border: none;
+    }
+
+
+
+    /*======HOME=========*/
+
+
 }
