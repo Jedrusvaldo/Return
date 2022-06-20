@@ -41,7 +41,7 @@ ul{
 }
 
 img{
-  overflow: 100%;
+  max-width: 100%;
 }
 
 section{
@@ -435,9 +435,15 @@ body.menu-expanded #navigation .logo path,
   stroke: white;
 }
 
+a{
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
 
 /*/================================RESET===============================/*/
 @media (min-width: 1024px){
+
 
   body{
     overflow: auto;
@@ -695,5 +701,6 @@ body.menu-expanded #navigation .logo path,
     footer .col-a{
       align-self: center;
     }
-
+    
+   
 }
