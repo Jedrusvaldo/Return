@@ -3,15 +3,15 @@ window.addEventListener('scroll', onScroll)
 
 
 
-onScroll()
+onScroll();
 function onScroll() {
-  showNavOnScroll()
-  showbackToTopButtonOnScroll()
+  showNavOnScroll();
+  showbackToTopButtonOnScroll();
 
-  activateMenuAtCurrentSection(home)
-  activateMenuAtCurrentSection(services)
-  activateMenuAtCurrentSection(about)
-  activateMenuAtCurrentSection(contact)
+  activateMenuAtCurrentSection(home);
+  activateMenuAtCurrentSection(services);
+  activateMenuAtCurrentSection(about);
+  activateMenuAtCurrentSection(contact);
 }
 
 function activateMenuAtCurrentSection(section) {
@@ -43,28 +43,28 @@ function activateMenuAtCurrentSection(section) {
 
 function showNavOnScroll(){
   if(scrollY > 0) { 
-    navigation.classList.add('scroll')
+    navigation.classList.add('scroll');
   }
   else{
-    navigation.classList.remove('scroll')
+    navigation.classList.remove('scroll');
   }
 }
 
 function showbackToTopButtonOnScroll(){
   if(scrollY > 500) { 
-   backToTopButton.classList.add('show')
+   backToTopButton.classList.add('show');
   }
   else{
-    backToTopButton.classList.remove('show')
+    backToTopButton.classList.remove('show');
   }
 }
 
 function openMenu(){
-  document.body.classList.add('menu-expanded')
+  document.body.classList.add('menu-expanded');
 }
 
 function closeMenu(){
-  document.body.classList.remove('menu-expanded')
+  document.body.classList.remove('menu-expanded');
 }
 
 ScrollReveal({
